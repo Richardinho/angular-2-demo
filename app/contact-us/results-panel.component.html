@@ -1,0 +1,7 @@
+<h2>Results</h2>
+<ul>
+    <li class="result" *ngFor="let result of results">
+        <h2>{{ result.volumeInfo?.title }}</h2>
+        <img  src="{{ result.volumeInfo?.imageLinks?.smallThumbnail }}">
+    </li>
+</ul>

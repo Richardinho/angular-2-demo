@@ -1,5 +1,11 @@
-<div>
-  <h1>hello world</h1>
-  <a [routerLink]="['lazy']">lazy</a>
+<div class="main">
+  <div class="navigation">
+    <h1>hello blah</h1>
+    <h2>This is an h2 blah</h2>
+    <ul>
+      <li><a routerLink="lazy">lazy</a></li>
+      <li><a [routerLink]="['/contact', { filter: 'free-ebooks' }]">contact</a></li>
+    </ul>
+  </div>
   <router-outlet></router-outlet>
 </div>

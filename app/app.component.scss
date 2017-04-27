@@ -1,3 +1,33 @@
 :host {
   background-color: blue;
+  display : block;
+}
+
+h2 {
+  color : red;
+}
+
+.main {
+  width : 1000px;
+  margin : auto;
+  background : pink;
+}
+
+.navigation {
+  background : cadetblue;
+  position : relative;
+  &:before, &:after {
+    position : absolute;
+    background : inherit;
+    content : '';
+    top : 0;
+    height : 100%;
+    width : calc(50vw - 50%);
+  }
+  &:before {
+    left : 100%;
+  }
+  &:after {
+    right : 100%;
+  }
 }

@@ -2,26 +2,32 @@ import { NgModule, Component } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-
-@Component({
-  selector: 'home-view',
-  template: 'home!'
-})
-export class HomeView {}
-
+import { HomeComponent } from './home.component';
+  // <-- #1 import module
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeView
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+
     RouterModule.forRoot([
-      {path: 'lazy', loadChildren: './lazy.module#LazyModule'},
-      {path: '', component: HomeView}
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'lazy',
+        loadChildren: './lazy.module#LazyModule'
+      },
+      {
+        path : 'contact',
+        loadChildren: './contact-us/contact.module#ContactModule'
+      }
     ])
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {}

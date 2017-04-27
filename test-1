@@ -1,0 +1,44 @@
+1. no chunk plugin
+
+-rw-r--r--  1 richardhunter  staff     6264 19 Apr 11:01 0.js
+-rw-r--r--  1 richardhunter  staff    84694 19 Apr 11:01 1.js
+-rw-r--r--  1 richardhunter  staff    84995 19 Apr 11:01 2.js
+-rw-r--r--  1 richardhunter  staff      251 19 Apr 11:01 index.html
+-rw-r--r--  1 richardhunter  staff  1234233 19 Apr 11:01 main.js
+-rw-r--r--  1 richardhunter  staff   297583 19 Apr 11:01 polyfill.js
+
+2. chunk plugin [main,polyfill]
+
+-rw-r--r--  1 richardhunter  staff     6263 19 Apr 11:04 0.js
+-rw-r--r--  1 richardhunter  staff    84692 19 Apr 11:04 1.js
+-rw-r--r--  1 richardhunter  staff    84993 19 Apr 11:04 2.js
+-rw-r--r--  1 richardhunter  staff      251 19 Apr 11:04 index.html
+-rw-r--r--  1 richardhunter  staff  1170947 19 Apr 11:04 main.js
+-rw-r--r--  1 richardhunter  staff   300884 19 Apr 11:04 polyfill.js
+3. chunk plugin [main,polyfill,foo]
+total 3248
+-rw-r--r--  1 richardhunter  staff     6265 19 Apr 11:05 0.js
+-rw-r--r--  1 richardhunter  staff    84694 19 Apr 11:05 1.js
+-rw-r--r--  1 richardhunter  staff    84995 19 Apr 11:05 2.js
+-rw-r--r--  1 richardhunter  staff     5717 19 Apr 11:05 foo.js
+-rw-r--r--  1 richardhunter  staff      305 19 Apr 11:05 index.html
+-rw-r--r--  1 richardhunter  staff  1170949 19 Apr 11:05 main.js
+-rw-r--r--  1 richardhunter  staff   295061 19 Apr 11:05 polyfill.js
+total 6168
+-rw-r--r--  1 richardhunter  staff     6265 19 Apr 11:41 0.a514ad04ccd9ccb3f05c.js
+-rw-r--r--  1 richardhunter  staff     8657 19 Apr 11:41 1.1d30fe94be60308459ec.js
+-rw-r--r--  1 richardhunter  staff     8958 19 Apr 11:41 2.66c6c4d28a9aaca7a21a.js
+-rw-r--r--  1 richardhunter  staff     5898 19 Apr 11:41 foo.934b4f70f22b49fc423e.js
+-rw-r--r--  1 richardhunter  staff      446 19 Apr 11:41 index.html
+-rw-r--r--  1 richardhunter  staff    37129 19 Apr 11:41 main.7512248e4173eb316978.js
+-rw-r--r--  1 richardhunter  staff   298370 19 Apr 11:41 polyfill.927d64075b942654095c.js
+-rw-r--r--  1 richardhunter  staff  2770067 19 Apr 11:41 vendor.f09fcae6027b4f2ad6a3.js
+total 6168
+-rw-r--r--  1 richardhunter  staff     6265 19 Apr 11:43 0.a514ad04ccd9ccb3f05c.js
+-rw-r--r--  1 richardhunter  staff     8657 19 Apr 11:43 1.1d30fe94be60308459ec.js
+-rw-r--r--  1 richardhunter  staff     8958 19 Apr 11:43 2.66c6c4d28a9aaca7a21a.js
+-rw-r--r--  1 richardhunter  staff     5898 19 Apr 11:43 foo.97552e03ea0ccec053c0.js
+-rw-r--r--  1 richardhunter  staff      446 19 Apr 11:43 index.html
+-rw-r--r--  1 richardhunter  staff    37128 19 Apr 11:43 main.b67ae6e2c1ab5fd1448c.js
+-rw-r--r--  1 richardhunter  staff   298370 19 Apr 11:43 polyfill.927d64075b942654095c.js
+-rw-r--r--  1 richardhunter  staff  2770067 19 Apr 11:43 vendor.f09fcae6027b4f2ad6a3.js

@@ -1,0 +1,39 @@
+<h2>Contact form</h2>
+<form [formGroup]="form" novalidate>
+
+    <label>title: <input type="text" formControlName="title"></label>
+    <label>author: <input type="text" formControlName="author"></label>
+    <label>publisher: <input type="text" formControlName="publisher"></label>
+    <label>subject: <input type="text" formControlName="subject"></label>
+
+    <fieldset>
+        <legend>meta info</legend>
+        <label>download:
+            <input type="checkbox" formControlName="download">
+        </label>
+
+        <label>filter:
+            <select formControlName="filter">
+                <option *ngFor="let filter of filters" [value]="filter.param">{{filter.display}}</option>
+            </select>
+        </label>
+        <br>
+<!--        <label><input formControlName="printType" type="radio" value="All">all</label>
+        <label><input formControlName="printType" type="radio" value="Books">books</label>
+        <label><input formControlName="printType" type="radio" value="Magazines">magazines</label>-->
+        <br>
+        <label>order by:
+            <select formControlName="order">
+                <option *ngFor="let order of orders" [value]="order.param">{{ order.display }}</option>
+            </select>
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>other stuff</legend>
+        <label>isbn: <input type="text" formControlName="isbn"></label>
+        <label>lccn: <input type="text" formControlName="lccn"></label>
+        <label>oclc: <input type="text" formControlName="oclc"></label>
+    </fieldset>
+</form>
+
+<results-panel [results]="results"></results-panel>
