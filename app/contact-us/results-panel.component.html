@@ -1,7 +1,14 @@
 <h2>Results</h2>
-<ul>
+
+<ul *ngIf="results.length">
     <li class="result" *ngFor="let result of results">
         <h2>{{ result.volumeInfo?.title }}</h2>
-        <img  src="{{ result.volumeInfo?.imageLinks?.smallThumbnail }}">
+        <img  class="thumbnail" src="{{ result.volumeInfo?.imageLinks?.smallThumbnail }}">
+        <span class="published-date">published: {{ result.volumeInfo?.publishedDate }}</span>
+        <span class="page-count">page count: {{ result.volumeInfo?.pageCount }}</span>
+        <div *ngIf="result.accessInfo?.pdf?.isAvailable">
+            <a href="{{result.accessInfo?.pdf?.downloadLink}}">download link</a>
+        </div>
     </li>
 </ul>
+<h3 *ngIf="!results.length">Sorry no results to display</h3>

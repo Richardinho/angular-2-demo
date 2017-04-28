@@ -22,6 +22,8 @@ export class ContactComponent {
 
     results: any = [];
 
+    totalResults: number;
+
     /*
         options for select drops downs
     */
@@ -101,6 +103,7 @@ export class ContactComponent {
                 this.printTypeOptions = data.printTypeOptions;
                 this.results = data.results;
                 this.form.reset(new FormViewAdapter(data.params));
+                this.totalResults = data.totalResults;
             });
     }
 }

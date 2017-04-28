@@ -41,8 +41,18 @@ export class ResultsService {
         let url = createURL(apiParams);
         return this.http.get(url)
             .map(res => {
+
+                let body = res.json();
+                let results = [];
+                let totalResults = 0;
+
+                if(body.totalItems) {
+                    results = body.items;
+                    totalResults = body.totalItems;
+                }
                 return {
-                    results : this.extractData(res),
+                    results : results,
+                    totalResults : totalResults,
                     filterOptions : filterOptions,
                     orderOptions : orderOptions,
                     printTypeOptions : printTypeOptions,
@@ -55,13 +65,6 @@ export class ResultsService {
         console.log('error occurred', e);
     }
 
-    private extractData(res: Response) {
-        let body = res.json();
-        if(body.totalItems) {
-            return body.items;
-        } else {
-            return [];
-        }
-    }
+
 
 }
