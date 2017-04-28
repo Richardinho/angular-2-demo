@@ -1,6 +1,6 @@
 import { Option } from './utils';
 
-export let orderOptionList: Option[] =  [
+export let orderOptions: Option[] =  [
     { param : 'newest', display : 'newest'},
     { param : 'relevance', display : 'relevance'}
 ];

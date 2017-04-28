@@ -1,6 +1,6 @@
 import { Option } from './utils';
 
-export let printTypeOptionList: Option[] =  [
+export let printTypeOptions: Option[] =  [
     { param : 'all', display : 'all'},
     { param : 'books', display : 'books'},
     { param : 'magazines', display : 'magazines'}

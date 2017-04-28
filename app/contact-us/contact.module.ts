@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ResultsService } from '../services/results-service';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { ResultsPanelComponent } from './results-panel';
+import { ParamUtils } from './param-utils';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { ResultsPanelComponent } from './results-panel';
     ContactComponent,
     ResultsPanelComponent
   ],
-  providers : [ ResultsService ]
+  providers : [ ResultsService, ParamUtils ]
 })
 export class ContactModule {}

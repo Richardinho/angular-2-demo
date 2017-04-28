@@ -1,53 +1,46 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { ResultsService } from '../services/results-service';
 import * as Rx from 'rxjs';
+import 'rxjs/add/operator/debounceTime';
 
-import { Criteria } from './criteria';
-import { CriteriaBuilder } from './criteria-builder';
 import { Option } from './utils';
 import { FormViewAdapter } from './form-view-adapter';
-import { ParamViewAdapter } from './param-view-adapter';
-import { filterOptionList } from './filter';
-import { orderOptionList } from './orders';
-import { printTypeOptionList } from './print-type';
-import 'rxjs/add/operator/debounceTime';
+import { ParamUtils } from './param-utils';
 
 @Component({
     moduleId : module.id,
     templateUrl : `./contact.component.html`,
     styleUrls : ['./styles.css']
 })
+
+
 export class ContactComponent {
 
     form: FormGroup;
 
     results: any = [];
 
-    criteria: Criteria;
-
     /*
         options for select drops downs
     */
-    printTypes: Option[] = printTypeOptionList;
-    filters: Option[] = filterOptionList;
-    orders: Option[] = orderOptionList;
+    printTypeOptions: Option[] = [];
+    filterOptions: Option[] = [];
+    orderOptions: Option[] = [];
+
+    constructor (
+
+        private formBuilder: FormBuilder,
+        private router: Router,
+        private route: ActivatedRoute,
+        private paramUtils: ParamUtils,
+        private resultsService: ResultsService) {
+    }
 
     ngOnInit() {
 
-        /*
-            We use a builder for constructing a criteria object so that the criteria object is always in
-            a consistent state. A builder is also able to specify defaults
-            A Criteria object represents the criteria data model. It is different from the form model as the form
-            model represents only what can be defined by the user.
-        */
-        let criteriaBuilder = new CriteriaBuilder();
-        this.criteria = criteriaBuilder.build();
-
-        //  a form is created from a criteria
-        //  initially it will be an empty form with no values other than the default ones
-        this.form = this.formBuilder.group(new FormViewAdapter(this.criteria));
+        this.form = this.formBuilder.group(new FormViewAdapter());
 
         let titleStream = this.form.get('title').valueChanges;
         let authorStream = this.form.get('author').valueChanges;
@@ -55,7 +48,7 @@ export class ContactComponent {
         let filterStream = this.form.get('filter').valueChanges;
         let downloadStream = this.form.get('download').valueChanges;
         let subjectStream = this.form.get('subject').valueChanges;
-        let orderStream = this.form.get('order').valueChanges;
+        let orderStream = this.form.get('orderBy').valueChanges;
         let isbnStream = this.form.get('isbn').valueChanges;
         let lccnStream = this.form.get('lccn').valueChanges;
         let oclcStream = this.form.get('oclc').valueChanges;
@@ -76,56 +69,25 @@ export class ContactComponent {
 
         // whenever an event happens on the input stream, we update the url
         inputStream.debounceTime(1000).forEach(val => {
-
-            // take form values, combine with old criteria to make new criteria
-            this.criteria = this.prepareCriteria();
-            let params: ParamViewAdapter = new ParamViewAdapter(this.criteria);
-            this.router.navigate(['/contact', params.getURLParams()]);
-
+            this.router.navigate(['/contact', this.paramUtils.createURLParams(this.form.value)]);
         });
 
-         // When the url changes we update the page. We request new results from the server
-         // we also repopulate the form. This is mainly so that when the user navigates to the page with this url
-         // e.g. via a bookmark, the form will be populated with data from the url.
-         this.route.params
+        /*
+            As well as the results, we get the option lists back from the server as these could change. (e.g. a new
+            filter option could be added somewhere on the back end.)
+            In practice it wont change very often, but our service could cache the options list locally, or else,
+            as we have done here, hard code it.
+        */
+        this.route.params
             .switchMap((params: Params) => {
-                let criteriaBuilder = CriteriaBuilder.fromURLParams(params);
-                let criteria = criteriaBuilder.build();
-                return this.resultsService.getResults(criteria);
+                return this.resultsService.getResultsAndCriteria(this.paramUtils.getAPIParams(params), params);
             })
-            .subscribe((criteriaAndResults) => {
-                this.criteria = criteriaAndResults.criteria;
-                this.results = criteriaAndResults.results;
-                this.form.reset(new FormViewAdapter(this.criteria));
+            .subscribe((data) => {
+                this.filterOptions = data.filterOptions;
+                this.orderOptions = data.orderOptions;
+                this.printTypeOptions = data.printTypeOptions;
+                this.results = data.results;
+                this.form.reset(new FormViewAdapter(data.params));
             });
-
-    }
-
-    constructor (
-
-        private formBuilder: FormBuilder,
-        private router: Router,
-        private route: ActivatedRoute,
-        private resultsService: ResultsService) {
-    }
-
-    prepareCriteria () {
-        let form = this.form.value;
-
-        let criteriaBuilder = new CriteriaBuilder(this.criteria);
-        criteriaBuilder.title = form.title;
-        criteriaBuilder.download = form.download;
-        criteriaBuilder.printType = form.printType;
-        criteriaBuilder.author = form.author;
-        criteriaBuilder.publisher = form.publisher;
-        criteriaBuilder.subject = form.subject;
-        criteriaBuilder.isbn = form.isbn;
-        criteriaBuilder.oclc = form.oclc;
-        criteriaBuilder.lccn = form.lccn;
-        criteriaBuilder.filter = form.filter;
-        criteriaBuilder.order = form.order;
-
-        return criteriaBuilder.build();
-
     }
 }

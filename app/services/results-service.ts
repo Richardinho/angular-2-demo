@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { Criteria } from '../contact-us/criteria';
-import { ParamViewAdapter } from '../contact-us/param-view-adapter';
+import { Params } from '@angular/router';
+
+import { printTypeOptions } from '../contact-us/print-type';
+import { orderOptions } from '../contact-us/orders';
+import { filterOptions } from '../contact-us/filters';
+import { APIParams } from '../contact-us/param-utils';
 
 
 
-function createURL(params) {
+function createURL(params: APIParams) {
     let url = 'https://www.googleapis.com/books/v1/volumes';
 
     let query = Object.keys(params).reduce((memo, key) => {
@@ -31,16 +35,18 @@ function createURL(params) {
 @Injectable()
 export class ResultsService {
 
-
     constructor (private http: Http) {}
 
-    getResults(criteria: Criteria) {
-        let url = createURL(new ParamViewAdapter(criteria).getAPIParams());
+    getResultsAndCriteria (apiParams: APIParams, params: Params) {
+        let url = createURL(apiParams);
         return this.http.get(url)
             .map(res => {
                 return {
                     results : this.extractData(res),
-                    criteria : criteria
+                    filterOptions : filterOptions,
+                    orderOptions : orderOptions,
+                    printTypeOptions : printTypeOptions,
+                    params : params  // just pass these through back to calling code
                 };
             })
     }

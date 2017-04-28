@@ -14,7 +14,7 @@
 
         <label>filter:
             <select formControlName="filter">
-                <option *ngFor="let filter of filters" [value]="filter.param">{{filter.display}}</option>
+                <option *ngFor="let filter of filterOptions" [value]="filter.param">{{filter.display}}</option>
             </select>
         </label>
         <br>
@@ -23,8 +23,8 @@
         <label><input formControlName="printType" type="radio" value="Magazines">magazines</label>-->
         <br>
         <label>order by:
-            <select formControlName="order">
-                <option *ngFor="let order of orders" [value]="order.param">{{ order.display }}</option>
+            <select formControlName="orderBy">
+                <option *ngFor="let order of orderOptions" [value]="order.param">{{ order.display }}</option>
             </select>
         </label>
     </fieldset>
