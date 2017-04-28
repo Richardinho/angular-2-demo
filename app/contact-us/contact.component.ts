@@ -38,6 +38,16 @@ export class ContactComponent {
         private resultsService: ResultsService) {
     }
 
+    createURLParams (formData, otherCriteria) {
+
+        return this.paramUtils.createURLParams(formData, otherCriteria);
+    }
+
+    createAPIParams (params) {
+
+        return this.paramUtils.getAPIParams(params);
+    }
+
     ngOnInit() {
 
         this.form = this.formBuilder.group(new FormViewAdapter());
@@ -67,9 +77,12 @@ export class ContactComponent {
             oclcStream
         );
 
+        //  other criteria which is in the url but not in the form
+        let otherCriteria = {};
+
         // whenever an event happens on the input stream, we update the url
         inputStream.debounceTime(1000).forEach(val => {
-            this.router.navigate(['/contact', this.paramUtils.createURLParams(this.form.value)]);
+            this.router.navigate(['/contact', this.createURLParams(this.form.value, otherCriteria)]);
         });
 
         /*
@@ -80,7 +93,7 @@ export class ContactComponent {
         */
         this.route.params
             .switchMap((params: Params) => {
-                return this.resultsService.getResultsAndCriteria(this.paramUtils.getAPIParams(params), params);
+                return this.resultsService.getResultsAndCriteria(this.createAPIParams(params), params);
             })
             .subscribe((data) => {
                 this.filterOptions = data.filterOptions;

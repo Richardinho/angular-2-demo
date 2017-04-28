@@ -33,74 +33,92 @@ interface URLParams {
 @Injectable()
 export class ParamUtils {
 
-    createURLParams (form) {
+    //  the purpose of this is to take the form data and other criteria and return an object which
+    //  contains the data that will be converted into a url for the address bar.
+    //  Not all the form fields will be filled in so this object should only contain those properties that are.
+    createURLParams (form, otherCriteria) {
 
-        let result: URLParams = {};
+        let urlData: URLParams = {};
 
         if (form.filter) {
-            result.filter = form.filter;
+            urlData.filter = form.filter;
         }
         if (form.startIndex) {
-            result.startIndex = form.startIndex;
+            urlData.startIndex = form.startIndex;
         }
         if (form.maxResults) {
-            result.maxResults = form.maxResults;
+            urlData.maxResults = form.maxResults;
         }
         if (form.projection) {
-            result.projection = form.projection;
+            urlData.projection = form.projection;
         }
         if (form.order) {
-            result.orderBy = form.order;
+            urlData.orderBy = form.order;
         }
         if (form.printType) {
-            result.printType = form.printType;
+            urlData.printType = form.printType;
         }
         if (form.download) {
-            result.download = 'epub';
+            urlData.download = 'epub';
+        }
+        if (form.author) {
+            urlData.author = form.author;
+        }
+        if (form.title) {
+            urlData.title = form.title;
+        }
+        if (form.subject) {
+            urlData.subject = form.subject;
+        }
+        if (form.publisher) {
+            urlData.publisher = form.publisher;
+        }
+        if (form.isbn) {
+            urlData.isbn = form.isbn;
+        }
+        if (form.lccn) {
+            urlData.lccn = form.lccn;
+        }
+        if (form.oclc) {
+            urlData.oclc = form.oclc;
         }
 
-        if (form.author) { result.author = form.author; }
-        if (form.title) { result.title = form.title; }
-        if (form.subject) { result.subject = form.subject; }
-        if (form.publisher) { result.publisher = form.publisher; }
-        if (form.isbn) { result.isbn = form.isbn; }
-        if (form.lccn) { result.lccn = form.lccn; }
-        if (form.oclc) { result.oclc = form.oclc; }
-
-        return result;
+        return urlData;
     }
 
-
-
+    /*
+        This should take a params object which represents params in the URL, and convert them into an object
+        which can be converted into the query params for an API call
+    */
     getAPIParams (params: Params) {
 
-        let result: APIParams = { q : 'raeburn' };
+        let apiData: APIParams = { q : 'raeburn' };
 
         if (params['filter']) {
-            result.filter = params['filter'];
+            apiData.filter = params['filter'];
         }
         if (params['startIndex']) {
-            result.startIndex = params['startIndex'];
+            apiData.startIndex = params['startIndex'];
         }
         if (params['maxResults']) {
-            result.maxResults = params['maxResults'];
+            apiData.maxResults = params['maxResults'];
         }
         if (params['projection']) {
-            result.projection = params['projection'];
+            apiData.projection = params['projection'];
         }
         if (params['order']) {
-            result.orderBy = params['order'];
+            apiData.orderBy = params['order'];
         }
         if (params['printType']) {
-            result.printType = params['printType'];
+            apiData.printType = params['printType'];
         }
         if (params['download']) {
-            result.download = 'epub';
+            apiData.download = 'epub';
         }
 
-        result.q = this.createQ(params);
+        apiData.q = this.createQ(params);
 
-        return result;
+        return apiData;
     }
 
     createQ (params: Params) {
