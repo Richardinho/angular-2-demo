@@ -13,7 +13,7 @@ export interface APIParams {
     q:string;
 }
 
-interface URLParams {
+export interface URLParams {
     filter?:string;
     startIndex?:number;
     maxResults?:number;
@@ -92,7 +92,7 @@ export class ParamUtils {
     */
     getAPIParams (params: Params) {
 
-        let apiData: APIParams = { q : 'raeburn' };
+        let apiData: APIParams = { q : '' };
 
         if (params['filter']) {
             apiData.filter = params['filter'];

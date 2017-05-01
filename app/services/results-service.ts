@@ -3,9 +3,9 @@ import { Http, URLSearchParams, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Params } from '@angular/router';
 
-import { printTypeOptions } from '../contact-us/print-type';
-import { orderOptions } from '../contact-us/orders';
-import { filterOptions } from '../contact-us/filters';
+import { printTypeOptions } from './print-type';
+import { orderOptions } from './orders';
+import { filterOptions } from './filters';
 import { APIParams } from '../contact-us/param-utils';
 
 

@@ -5,7 +5,7 @@ import { ResultsService } from '../services/results-service';
 import * as Rx from 'rxjs';
 import 'rxjs/add/operator/debounceTime';
 
-import { Option } from './utils';
+import { Option } from '../services/utils';
 import { FormViewAdapter } from './form-view-adapter';
 import { ParamUtils } from './param-utils';
 
