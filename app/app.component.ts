@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import '../styles/reset.css';
+import '!style-loader!css-loader!../styles/reset.css';
 
 @Component({
   selector: 'app-root',

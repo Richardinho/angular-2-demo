@@ -7,7 +7,7 @@ module.exports = {
         extensions: ['.ts', '.js']
     },
     entry: {
-        'main' : './app/main.aot.ts',
+        'main' : './main.aot.ts',
         'vendor' : './app/vendor.ts',
         'polyfill' : './app/polyfill.ts'
     },
@@ -18,11 +18,36 @@ module.exports = {
         chunkFilename: '[id].chunk.js'
     },
     module: {
-        loaders: [
-            { test: /\.scss$/, loaders: ['raw-loader', 'sass-loader'] },
-            { test: /\.css$/,  loader: 'raw-loader' },
-            { test: /\.html$/, loader: 'raw-loader' },
-            { test: /\.ts$/,   loader: '@ngtools/webpack' }
+
+        rules: [
+            {
+                test: /\.scss$/,
+                use : [{
+                    loader : 'raw-loader'
+                },{
+                    loader : 'sass-loader'
+                }]
+            },
+            //  needed for css loaded by angular
+            {
+                test: /\.css$/,
+                use : [{
+                    loader : 'raw-loader'
+                }]
+            },
+            // needed for templates loaded by angular
+            {
+                test: /\.html$/,
+                use : [{
+                    loader: 'raw-loader'
+                }]
+            },
+            {
+                test: /\.ts$/,
+                use : [{
+                    loader: '@ngtools/webpack'
+                }]
+            }
         ]
     },
     plugins: [

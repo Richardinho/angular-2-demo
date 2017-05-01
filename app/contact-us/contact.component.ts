@@ -12,7 +12,7 @@ import { ParamUtils } from './param-utils';
 @Component({
     moduleId : module.id,
     templateUrl : `./contact.component.html`,
-    styleUrls : ['./styles.css']
+    styleUrls : ['./styles.css']  // Doesn't compile if this is scss. becauses of lazy loading?
 })
 
 
@@ -38,6 +38,7 @@ export class ContactComponent {
         private route: ActivatedRoute,
         private paramUtils: ParamUtils,
         private resultsService: ResultsService) {
+
     }
 
     createURLParams (formData, otherCriteria) {
