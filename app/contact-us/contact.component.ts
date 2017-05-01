@@ -41,16 +41,6 @@ export class ContactComponent {
 
     }
 
-    createURLParams (formData, otherCriteria) {
-
-        return this.paramUtils.createURLParams(formData, otherCriteria);
-    }
-
-    createAPIParams (params) {
-
-        return this.paramUtils.getAPIParams(params);
-    }
-
     ngOnInit() {
 
         this.form = this.formBuilder.group(new FormViewAdapter());
@@ -106,5 +96,15 @@ export class ContactComponent {
                 this.form.reset(new FormViewAdapter(data.params));
                 this.totalResults = data.totalResults;
             });
+    }
+
+    createURLParams (formData, otherCriteria) {
+
+        return this.paramUtils.createURLParams(formData, otherCriteria);
+    }
+
+    createAPIParams (params) {
+
+        return this.paramUtils.getAPIParams(params);
     }
 }
