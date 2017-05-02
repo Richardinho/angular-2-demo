@@ -1,7 +1,7 @@
 import { Component, Input, HostBinding } from '@angular/core';
 
 @Component({
-    moduleId : module.id,
+    moduleId : '' + module.id,  //  see readme for explanation for this.
     selector : 'results-panel',
     styleUrls : ['./results-panel.css'],
     templateUrl : `./results-panel.component.html`

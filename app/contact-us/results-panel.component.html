@@ -2,7 +2,7 @@
 
 <ul *ngIf="results.length">
     <li class="result" *ngFor="let result of results">
-        <h2>{{ result.volumeInfo?.title }}</h2>
+        <h2 data-test="volume-title">{{ result.volumeInfo?.title }}</h2>
         <img  class="thumbnail" src="{{ result.volumeInfo?.imageLinks?.smallThumbnail }}">
         <span class="published-date">published: {{ result.volumeInfo?.publishedDate }}</span>
         <span class="page-count">page count: {{ result.volumeInfo?.pageCount }}</span>

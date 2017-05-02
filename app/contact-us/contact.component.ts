@@ -12,7 +12,7 @@ import { ParamUtils } from './param-utils';
 @Component({
     moduleId : module.id,
     templateUrl : `./contact.component.html`,
-    styleUrls : ['./styles.css']  // Doesn't compile if this is scss. becauses of lazy loading?
+    styleUrls : ['./styles.css']  // Doesn't compile if this is scss. because of lazy loading?
 })
 
 

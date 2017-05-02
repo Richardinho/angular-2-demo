@@ -23,22 +23,18 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'html-loader'
+        loader: 'raw-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'null-loader'
       },
       {
-        test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
-        loader: 'null-loader'
+         test: /\.css$/,
+         use : [{
+             loader : 'raw-loader'
+         }]
       },
-      {
-        test: /\.css$/,
-        include: helpers.root('src', 'app'),
-        loader: 'raw-loader'
-      }
     ]
   },
 
