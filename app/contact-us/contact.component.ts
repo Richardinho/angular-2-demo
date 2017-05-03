@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { ResultsService } from '../services/results-service';
+import { RouterModule } from '@angular/router';
 import * as Rx from 'rxjs';
 import 'rxjs/add/operator/debounceTime';
 
@@ -10,7 +11,7 @@ import { FormViewAdapter } from './form-view-adapter';
 import { ParamUtils } from './param-utils';
 
 @Component({
-    moduleId : module.id,
+    moduleId : '' + module.id,
     templateUrl : `./contact.component.html`,
     styleUrls : ['./styles.css']  // Doesn't compile if this is scss. because of lazy loading?
 })

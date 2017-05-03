@@ -6,12 +6,10 @@ import { DebugElement }    from '@angular/core';
 import { ResultsPanelComponent } from './results-panel';
 
 
-describe('contact.component', () => {
+describe('results-panel.component', () => {
 
     let comp:    ResultsPanelComponent;
     let fixture: ComponentFixture<ResultsPanelComponent>;
-    let de:      DebugElement;
-    let el:      HTMLElement;
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
@@ -26,16 +24,28 @@ describe('contact.component', () => {
         comp = fixture.componentInstance;
     });
 
-    it('should display original title', () => {
+    it('should display titles', () => {
         comp.results = [{
             volumeInfo : {
-                title : 'Hamlet, Prince of Denmark'
+                title : 'Hamlet, Prince of Denmark',
+                imageLinks : {}
+            }
+        },{
+            volumeInfo : {
+                title : 'Critique of Pure Reason',
+                imageLinks : {}
             }
         }];
         fixture.detectChanges();
-        de = fixture.debugElement.query(By.css('[data-test=volume-title]'));
-        el = de.nativeElement;
-        expect(el.textContent).toContain('Hamlet, Prince of Denmark');
+
+        let titles = fixture.debugElement.queryAll(By.css('[data-test=volume-title]'));
+
+        expect(titles.length).toBe(2);
+
+        let titleOneEl = titles[0].nativeElement;
+        let titleTwoEl = titles[1].nativeElement;
+        expect(titleOneEl.textContent).toContain('Hamlet, Prince of Denmark');
+        expect(titleTwoEl.textContent).toContain('Critique of Pure Reason');
     });
 });
 

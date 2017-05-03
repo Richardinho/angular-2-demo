@@ -9,6 +9,10 @@ The tsconfig file exclude property by default excludes 'node_modules'. If you ex
 Turns out that Angular expects a string but in Webpack module.id returns a number! Solution is to convert the module.id into a string.
 
 
+Questions
+
+1. How to run tests in browser for debugging?
+
 
 
 
