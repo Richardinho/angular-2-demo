@@ -1,6 +1,6 @@
 import {} from 'jasmine';
 import { ContactComponent } from './contact.component';
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async, fakeAsync, tick, inject } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { ResultsService } from '../services/results-service';
@@ -12,6 +12,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { By }              from '@angular/platform-browser';
 import { DebugElement }    from '@angular/core';
 
+
+//  todo: create page object
 class RouterStub {
     navigate (arg) {}
 }
@@ -72,18 +74,41 @@ describe('contact.component', () => {
             ]
         }).compileComponents().then(() => {
             fixture = TestBed.createComponent(ContactComponent);
+            fixture.detectChanges();
+            fixture.whenStable().then(() => {
+                fixture.detectChanges();
+            });
         });
 
     }));
 
-    it ('should render results', async(() => {
-        fixture.detectChanges();
-        fixture.whenStable().then(() => {
-            fixture.detectChanges();
+    describe('On page load', () => {
+        it ('should render results', async(() => {
             let titles = fixture.debugElement.queryAll(By.css('[data-test=volume-title]'));
             expect(titles.length).toBe(2);
             expect(titles[0].nativeElement.textContent).toBe('To a mouse');
             expect(titles[1].nativeElement.textContent).toBe('The Pippin');
-        });
-    }));
+        }));
+    });
+    describe('When user inputs search criteria', () => {
+
+        it('should call navigate() on router with url and parameter object', fakeAsync(() => {
+            let router = fixture.debugElement.injector.get(Router);
+            const spy = spyOn(router, 'navigate');
+            let author = fixture.debugElement.query(By.css('[data-test=author-input]'));
+            let title = fixture.debugElement.query(By.css('[data-test=title-input]'));
+            author.nativeElement.value = 'George Orwell';
+            title.nativeElement.value = '1984';
+            author.triggerEventHandler('input', { target : author.nativeElement });
+            title.triggerEventHandler('input', { target : title.nativeElement });
+            tick(1000);
+            const navArgs = spy.calls.first().args[0];
+            expect(navArgs).toEqual(['/contact', {
+                filter : 'partial',
+                printType : 'all',
+                author : 'George Orwell',
+                title : '1984'
+            }])
+        }));
+    });
 });
