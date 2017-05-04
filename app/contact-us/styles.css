@@ -1,3 +1,6 @@
 .result img {
     width : 100px;
 }
+.results-panel-backing {
+    background : white;
+}

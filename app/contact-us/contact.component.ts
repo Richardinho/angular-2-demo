@@ -9,11 +9,31 @@ import 'rxjs/add/operator/debounceTime';
 import { Option } from '../services/utils';
 import { FormViewAdapter } from './form-view-adapter';
 import { ParamUtils } from './param-utils';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
     moduleId : '' + module.id,
     templateUrl : `./contact.component.html`,
-    styleUrls : ['./styles.css']  // Doesn't compile if this is scss. because of lazy loading?
+    styleUrls : ['./styles.css'],  // Doesn't compile if this is scss. because of lazy loading?
+    animations: [
+      trigger('resultsState', [
+        state('in', style({
+            opacity: 1
+        })),
+        state('out', style({
+            opacity: 0
+        })),
+        transition('in <=> out', [
+          animate('300ms ease-in')
+        ])
+      ])
+    ]
 })
 
 
@@ -21,7 +41,9 @@ export class ContactComponent {
 
     form: FormGroup;
 
+
     results: any = [];
+    _results: any = [];
 
     totalResults: number;
 
@@ -32,6 +54,8 @@ export class ContactComponent {
     filterOptions: Option[] = [];
     orderOptions: Option[] = [];
 
+    resultsAnimation = 'in';
+
     constructor (
 
         private formBuilder: FormBuilder,
@@ -40,6 +64,14 @@ export class ContactComponent {
         private paramUtils: ParamUtils,
         private resultsService: ResultsService) {
 
+    }
+
+    animationDone(event) {
+    
+        if (this.resultsAnimation !== 'in') {
+            this.results = this._results;
+            this.resultsAnimation = 'in';
+        }
     }
 
     ngOnInit() {
@@ -93,8 +125,9 @@ export class ContactComponent {
                 this.filterOptions = data.filterOptions;
                 this.orderOptions = data.orderOptions;
                 this.printTypeOptions = data.printTypeOptions;
-                this.results = data.results;
+                this._results = data.results;
                 this.form.reset(new FormViewAdapter(data.params));
+                this.resultsAnimation = 'out';
                 this.totalResults = data.totalResults;
             });
     }

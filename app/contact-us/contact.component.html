@@ -36,4 +36,10 @@
     </fieldset>
 </form>
 <h3>{{ totalResults }} results</h3>
-<results-panel [results]="results"></results-panel>
+<div class="results-panel-backing">
+    <results-panel
+            [@resultsState]="resultsAnimation"
+            [results]="results"
+            (@resultsState.done)="animationDone($event)"
+            ></results-panel>
+</div>

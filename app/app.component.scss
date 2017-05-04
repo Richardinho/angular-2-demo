@@ -1,6 +1,14 @@
 :host {
-  background-color: blue;
   display : block;
+  font-family : helvetica;
+  color : #777;
+}
+
+h1 {
+  font-size : 40px;
+  padding : 20px;
+  border-bottom : solid 1px black;
+  color : black;
 }
 
 h2 {
@@ -10,11 +18,9 @@ h2 {
 .main {
   width : 1000px;
   margin : auto;
-  background : pink;
 }
 
 .navigation {
-  background : cadetblue;
   position : relative;
   &:before, &:after {
     position : absolute;
