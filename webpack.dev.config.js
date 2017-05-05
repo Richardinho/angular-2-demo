@@ -9,12 +9,11 @@ module.exports = {
 
     entry: {
 
-        'main' : './main.aot.ts',
+        'main' : './app/main.jit.ts',
         'vendor' : './app/vendor.ts',
         'polyfill' : './app/polyfill.ts'
     },
     output: {
-        path: __dirname + '/dist',
         publicPath: '/',
         filename: '[name].js',
         chunkFilename: '[id].chunk.js'
@@ -64,6 +63,9 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
           name: ['main', 'vendor', 'polyfill', 'webpack-bootstrap']
         })
-    ]
+    ],
+    devServer: {
+        historyApiFallback: true
+    }
 };
 
