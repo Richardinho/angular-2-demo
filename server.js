@@ -1,14 +1,13 @@
-let express = require('express');
+var express = require('express');
+var app = express();
 
-let app = express();
-let port = process.env.PORT;
+app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/dist'));
 
 app.get('*', function (request, response) {
 	response.sendFile(__dirname + '/dist/index.html');
 });
-
-app.listen(port, function () {
-	console.log('listening on port:', port);
+app.listen(app.get('port'), function() {
+  console.log('Server started: http://localhost:' + app.get('port') + '/');
 });
