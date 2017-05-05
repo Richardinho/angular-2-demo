@@ -2,7 +2,10 @@
   "name": "test",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "build": "webpack --progress  --watch --config webpack.config.js",
+    "dev": "webpack-dev-server --inline --progress --port 8080",
+    "start" : "node server.js",
+    "test": "karma start"
   },
   "dependencies": {
     "express": "^4.15.2"
