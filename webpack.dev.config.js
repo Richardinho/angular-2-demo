@@ -3,8 +3,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ngToolsWebpack = require('@ngtools/webpack');
 
 module.exports = {
+
     resolve: {
+
         extensions: ['.ts', '.js']
+
     },
 
     entry: {
@@ -12,12 +15,17 @@ module.exports = {
         'main' : './app/main.jit.ts',
         'vendor' : './app/vendor.ts',
         'polyfill' : './app/polyfill.ts'
+
     },
+
     output: {
+
         publicPath: '/',
         filename: '[name].js',
         chunkFilename: '[id].chunk.js'
+
     },
+
     module: {
 
         rules: [
@@ -51,19 +59,24 @@ module.exports = {
             }
         ]
     },
+
     plugins: [
+
         new ngToolsWebpack.AotPlugin({
             tsConfigPath: './tsconfig.dev.json',
             entryModule: __dirname + '/app/app.module#AppModule'
         }),
+
         new HtmlWebpackPlugin({
             template: 'index.html'
         }),
+
         //new CleanWebpackPlugin(['dist']),
         new webpack.optimize.CommonsChunkPlugin({
           name: ['main', 'vendor', 'polyfill', 'webpack-bootstrap']
         })
     ],
+
     devServer: {
         historyApiFallback: true
     }

@@ -3,8 +3,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ngToolsWebpack = require('@ngtools/webpack');
 
 module.exports = {
+
     resolve: {
+
         extensions: ['.ts', '.js']
+
     },
 
     entry: {
@@ -12,13 +15,18 @@ module.exports = {
         'main' : './main.aot.ts',
         'vendor' : './app/vendor.ts',
         'polyfill' : './app/polyfill.ts'
+
     },
+
     output: {
+
         path: __dirname + '/dist',
         publicPath: '/',
         filename: '[name].js',
         chunkFilename: '[id].chunk.js'
+
     },
+
     module: {
 
         rules: [
