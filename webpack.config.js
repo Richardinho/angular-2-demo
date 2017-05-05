@@ -1,18 +1,17 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-//const ngToolsWebpack = require('@ngtools/webpack');
+const ngToolsWebpack = require('@ngtools/webpack');
 
 module.exports = {
     resolve: {
         extensions: ['.ts', '.js']
     },
-    entry : './main.js',
-    //entry: {
+    entry: {
 
-        //'main' : './main.aot.ts',
-        //'vendor' : './app/vendor.ts',
-        //'polyfill' : './app/polyfill.ts'
-    //},
+        'main' : './main.aot.ts',
+        'vendor' : './app/vendor.ts',
+        'polyfill' : './app/polyfill.ts'
+    },
     output: {
         path: __dirname + '/dist',
         publicPath: '/',
@@ -44,19 +43,19 @@ module.exports = {
                     loader: 'raw-loader'
                 }]
             },
-            /*{
+            {
                 test: /\.ts$/,
                 use : [{
                     loader: '@ngtools/webpack'
                 }]
-            }*/
+            }
         ]
     },
     plugins: [
-/*        new ngToolsWebpack.AotPlugin({
+        new ngToolsWebpack.AotPlugin({
             tsConfigPath: './tsconfig.json',
             entryModule: __dirname + '/app/app.module#AppModule'
-        }),*/
+        }),
         new HtmlWebpackPlugin({
             template: 'index.html'
         }),
