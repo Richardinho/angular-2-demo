@@ -7,7 +7,6 @@ export class FormViewAdapter {
 
     title: string = '';
     download: boolean = false;
-    printType: string = 'all';
     author: string = '';
     publisher: string = '';
     subject: string = '';
@@ -21,7 +20,6 @@ export class FormViewAdapter {
         if (params) {
             this.title = params['title'] ? params['title'] : this.title;
             this.download = params['download'] ? params['download'] : this.download;
-            this.printType = params['printType'] ? params['printType'] : this.printType;
             this.author = params['author'] ? params['author'] : this.author;
             this.publisher = params['publisher'] ? params['publisher'] : this.publisher;
             this.subject = params['subject'] ? params['subject'] : this.subject;

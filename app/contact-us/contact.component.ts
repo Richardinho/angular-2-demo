@@ -67,9 +67,9 @@ export class ContactComponent {
     }
 
     animationDone(event) {
-    
+
+        this.results = this._results;
         if (this.resultsAnimation !== 'in') {
-            this.results = this._results;
             this.resultsAnimation = 'in';
         }
     }

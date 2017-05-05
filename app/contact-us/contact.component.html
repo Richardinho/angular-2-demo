@@ -1,4 +1,3 @@
-<h2>Contact form</h2>
 <form [formGroup]="form" novalidate>
 
     <label>title: <input data-test="title-input" type="text" formControlName="title"></label>
@@ -7,7 +6,6 @@
     <label>subject: <input type="text" formControlName="subject"></label>
 
     <fieldset>
-        <legend>meta info</legend>
         <label>download:
             <input type="checkbox" formControlName="download">
         </label>
@@ -18,10 +16,6 @@
             </select>
         </label>
         <br>
-<!--        <label><input formControlName="printType" type="radio" value="All">all</label>
-        <label><input formControlName="printType" type="radio" value="Books">books</label>
-        <label><input formControlName="printType" type="radio" value="Magazines">magazines</label>-->
-        <br>
         <label>order by:
             <select formControlName="orderBy">
                 <option *ngFor="let order of orderOptions" [value]="order.param">{{ order.display }}</option>
@@ -29,13 +23,12 @@
         </label>
     </fieldset>
     <fieldset>
-        <legend>other stuff</legend>
         <label>isbn: <input type="text" formControlName="isbn"></label>
         <label>lccn: <input type="text" formControlName="lccn"></label>
         <label>oclc: <input type="text" formControlName="oclc"></label>
     </fieldset>
 </form>
-<h3>{{ totalResults }} results</h3>
+<h3 class="meta">{{ totalResults }} results</h3>
 <div class="results-panel-backing">
     <results-panel
             [@resultsState]="resultsAnimation"

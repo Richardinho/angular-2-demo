@@ -1,3 +1,21 @@
 :host {
-    background : white;
+    background : #ddd;
 }
+
+.result {
+    padding : 20px;
+    border-bottom : solid 4px #ccc;
+}
+
+img {
+    float : left;
+    margin-right : 10px;
+    height : 120px;
+}
+
+h2 {
+    font-size : 18px;
+    margin-bottom : 12px;
+    color : black;
+}
+

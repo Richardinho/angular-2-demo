@@ -8,7 +8,6 @@ export interface APIParams {
     maxResults?:number;
     projection?:string;
     orderBy?:string;
-    printType?:string;
     download?:string;
     q:string;
 }
@@ -19,7 +18,6 @@ export interface URLParams {
     maxResults?:number;
     projection?:string;
     orderBy?:string;
-    printType?:string;
     download?:string;
     author?:string;
     title?:string;
@@ -54,9 +52,6 @@ export class ParamUtils {
         }
         if (form.order) {
             urlData.orderBy = form.order;
-        }
-        if (form.printType) {
-            urlData.printType = form.printType;
         }
         if (form.download) {
             urlData.download = 'epub';
@@ -108,9 +103,6 @@ export class ParamUtils {
         }
         if (params['order']) {
             apiData.orderBy = params['order'];
-        }
-        if (params['printType']) {
-            apiData.printType = params['printType'];
         }
         if (params['download']) {
             apiData.download = 'epub';
