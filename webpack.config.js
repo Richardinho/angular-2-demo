@@ -6,15 +6,13 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js']
     },
-    entry : {
-        'main' : './main.js'
-    },
-    /*entry: {
+
+    entry: {
 
         'main' : './main.aot.ts',
         'vendor' : './app/vendor.ts',
         'polyfill' : './app/polyfill.ts'
-    },*/
+    },
     output: {
         path: __dirname + '/dist',
         publicPath: '/',
