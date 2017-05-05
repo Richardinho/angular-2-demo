@@ -21,6 +21,7 @@
     "camelize": "^1.0.0",
     "core-js": "latest",
     "decamelize": "^1.2.0",
+    "expressjs": "^1.0.1",
     "rxjs": "latest",
     "style-loader": "^0.13.2",
     "zone.js": "latest"
