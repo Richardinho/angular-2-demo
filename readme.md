@@ -14,6 +14,11 @@ Questions
 1. How to run tests in browser for debugging?
 
 
+# Building a single page app with Angular
+
+## intro
+The new version of Angular, currently at version 4 though still often popularly described as 'Angular 2', is the most cutting edge and advanced of all the front end Javascript MVC frameworks. Designed for building single page apps, it would be wrong to say it makes such a task 'easy', but it certainly solves a lot of common problems in an elegant manner, paving the way for a performant and maintainable application. The first difficulty faced is learning the framework itself. There are many different facets to it and in order to build a production ready app it really is necessary to have a grasp of all of them. Once up and running, the framework does indeed make some tasks indeed trivial to carry out. Because however you are very much working in 'the Angular way', when you do diverge from the main line and attempt something not described in the documents, it can be challenging to build something which works with all of Angular's moving parts.
+
 
 
 
