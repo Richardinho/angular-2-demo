@@ -2,10 +2,10 @@
   "name": "test",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --progress  --watch --config webpack.config.js",
+    "build": "webpack --progress  --watch --config webpack.prod.config.js",
     "dev": "webpack-dev-server --config webpack.dev.config.js --inline --progress --port 8080",
-    "start" : "node server.js",
-    "test": "karma start"
+    "test": "karma start",
+    "start" : "node server.js"
   },
   "dependencies": {
     "@angular/animations": "4.0.0",
