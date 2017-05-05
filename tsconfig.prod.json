@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es5",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "mapRoot": "",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "outDir": "lib",
+    "skipLibCheck": true,
+    "rootDir": "."
+  },
+  "exclude" : ["./app/main.jit.ts", "node_modules"],
+  "angularCompilerOptions": {
+    "genDir": "./app/ngfactory"
+  }
+}

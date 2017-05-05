@@ -54,7 +54,7 @@ module.exports = {
     },
     plugins: [
         new ngToolsWebpack.AotPlugin({
-            tsConfigPath: './tsconfig.json',
+            tsConfigPath: './tsconfig.prod.json',
             entryModule: __dirname + '/app/app.module#AppModule'
         }),
         new HtmlWebpackPlugin({
