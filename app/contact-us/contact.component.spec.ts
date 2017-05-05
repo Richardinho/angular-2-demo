@@ -11,6 +11,8 @@ import { ParamUtils } from './param-utils';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { By }              from '@angular/platform-browser';
 import { DebugElement }    from '@angular/core';
+import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 //  todo: create page object
@@ -60,10 +62,12 @@ describe('contact.component', () => {
                 ResultsPanelComponent
             ],
             imports : [
+                BrowserModule,
+                BrowserAnimationsModule,
                 ReactiveFormsModule,
                 HttpModule,
                 JsonpModule,
-                CommonModule,
+                CommonModule
             ],
             providers : [
                 { provide : Router,         useClass : RouterStub },
@@ -105,7 +109,6 @@ describe('contact.component', () => {
             const navArgs = spy.calls.first().args[0];
             expect(navArgs).toEqual(['/contact', {
                 filter : 'partial',
-                printType : 'all',
                 author : 'George Orwell',
                 title : '1984'
             }])

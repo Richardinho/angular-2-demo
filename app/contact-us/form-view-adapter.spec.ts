@@ -14,7 +14,6 @@ describe('form view adapter', () => {
         it('should have default properties', () => {
             expect(formViewAdapter.title).toBe('');
             expect(formViewAdapter.download).toBe(false);
-            expect(formViewAdapter.printType).toBe('all');
             expect(formViewAdapter.author).toBe('');
             expect(formViewAdapter.publisher).toBe('');
             expect(formViewAdapter.subject).toBe('');
@@ -38,7 +37,6 @@ describe('form view adapter', () => {
         it('should have default properties and properties from param object', () => {
             expect(formViewAdapter.title).toBe('my cool book');
             expect(formViewAdapter.download).toBe(false);
-            expect(formViewAdapter.printType).toBe('all');
             expect(formViewAdapter.author).toBe('');
             expect(formViewAdapter.publisher).toBe('a publisher');
             expect(formViewAdapter.subject).toBe('');
