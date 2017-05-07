@@ -12,9 +12,9 @@ module.exports = {
 
     entry: {
 
-        'main' : './app/main.jit.ts',
+        'polyfill' : './app/polyfill.ts',
         'vendor' : './app/vendor.ts',
-        'polyfill' : './app/polyfill.ts'
+        'main' : './main.aot.ts'
 
     },
 
@@ -70,11 +70,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'index.html'
         }),
-
-        //new CleanWebpackPlugin(['dist']),
-        new webpack.optimize.CommonsChunkPlugin({
-          name: ['main', 'vendor', 'polyfill', 'webpack-bootstrap']
-        })
     ],
 
     devServer: {

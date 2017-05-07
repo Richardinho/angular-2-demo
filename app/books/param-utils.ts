@@ -141,7 +141,7 @@ export class ParamUtils {
 
         //  q is a required parameter for the API
         if(!p.length) {
-            p.push('default');
+            p.push('intitle:default');
         }
 
         return p.join('+');

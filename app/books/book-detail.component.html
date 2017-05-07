@@ -1,0 +1,16 @@
+<div class="clearfix">
+    <h2>{{ book.volumeInfo?.title }}</h2>
+
+    <div class="published-date">Published date: {{ book.volumeInfo?.publishedDate }}</div>
+
+    <div><img src="{{ book.volumeInfo?.imageLinks?.extraLarge }}"></div>
+
+    <div class="sale-info">
+        <h2>Sale Info</h2>
+        <div><a href="{{ book.saleInfo?.buyLink}}">Buy now</a></div>
+    </div>
+
+    <div class="access-info">
+        <a href="{{ book.accessInfo?.webReaderLink }}">read on web reader</a>
+    </div>
+</div>

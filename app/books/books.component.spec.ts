@@ -1,5 +1,5 @@
 import {} from 'jasmine';
-import { ContactComponent } from './contact.component';
+import { BooksComponent } from './books.component';
 import { ComponentFixture, TestBed, async, fakeAsync, tick, inject } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormControl, FormBuilder, FormGroup } from '@angular/forms';
@@ -51,14 +51,14 @@ class ActivatedRouteStub {
 
 describe('contact.component', () => {
 
-    let comp: ContactComponent;
-    let fixture: ComponentFixture<ContactComponent>;
+    let comp: BooksComponent;
+    let fixture: ComponentFixture<BooksComponent>;
 
     beforeEach(async(() => {
 
         TestBed.configureTestingModule({
             declarations : [
-                ContactComponent,
+                BooksComponent,
                 ResultsPanelComponent
             ],
             imports : [

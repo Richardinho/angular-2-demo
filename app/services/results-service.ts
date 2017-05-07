@@ -6,7 +6,7 @@ import { Params } from '@angular/router';
 import { printTypeOptions } from './print-type';
 import { orderOptions } from './orders';
 import { filterOptions } from './filters';
-import { APIParams } from '../contact-us/param-utils';
+import { APIParams } from '../books/param-utils';
 
 
 

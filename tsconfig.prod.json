@@ -16,7 +16,6 @@
     "skipLibCheck": true,
     "rootDir": "."
   },
-  "exclude" : ["./app/main.jit.ts", "node_modules"],
   "angularCompilerOptions": {
     "genDir": "./app/ngfactory"
   }

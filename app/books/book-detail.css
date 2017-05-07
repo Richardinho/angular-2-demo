@@ -1,0 +1,38 @@
+:host {
+    display : block;
+    padding : 10px;
+    background : #eee;
+
+}
+
+
+h2 {
+    font-size : 20px;
+    color : black;
+    margin-bottom : 10px;
+}
+
+.published-date {
+    line-height : 1.5;
+}
+
+img {
+    height : 300px;
+    float : left;
+    border : solid 2px #aaa;
+    margin-right : 10px;
+    margin-bottom : 10px;
+}
+
+.sale-info, .access-info {
+    float : left;
+    padding : 10px;
+    margin-right : 10px;
+    margin-bottom : 10px;
+}
+.sale-info {
+    background : #ccc;
+}
+.access-info {
+    background : #eee;
+}

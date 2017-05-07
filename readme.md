@@ -29,13 +29,14 @@ In this app I use Webpack for module loading and bundling. Angular supports Syst
 Webpack is because Webpack has plugins and loaders for AOT compilation and lazy loading which I was unable to find for SystemJS. The Angular CLI tool uses Webpack and my sense is that this is the direction Angular will go in.
 For a production app, it is required to have separate build config files for development, testing, and production environments.
 
-#### Just In Time V Ahead Of Time compilation
+#### Dev environment
+ 'Compilation' in Angular means the processing of components and templates into runnable Javascript. There are two ways in Angular that this can be done. Compiling in the browser at runtime is known as 'Just In Time' or JIT. This is the recommended method for development. AOT (Ahead of Time) means doing the compilation on the server. We will use this method for the production environment.
 
-#### Lazy loading
+#### Produdction environment
 
-#### Bundling strategy
+#### Testing Environment
 
-#### 
+
 
 
 

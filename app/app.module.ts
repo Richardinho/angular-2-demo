@@ -21,11 +21,11 @@ import { HomeComponent } from './home.component';
       },
       {
         path: 'lazy',
-        loadChildren: './lazy.module#LazyModule'
+        loadChildren: './lazy/lazy.module#LazyModule'
       },
       {
-        path : 'contact',
-        loadChildren: './contact-us/contact.module#ContactModule'
+        path : 'books',
+        loadChildren: './books/books.module#BooksModule'
       }
     ])
   ],

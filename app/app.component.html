@@ -2,8 +2,9 @@
   <h1>Book search</h1>
   <div class="navigation">
     <ul class="navigation-links">
+      <li><a routerLink="">home</a></li>
       <li><a routerLink="lazy">lazy</a></li>
-      <li><a [routerLink]="['/contact', { filter: 'free-ebooks' }]">contact</a></li>
+      <li><a [routerLink]="['/books', { filter: 'free-ebooks' }]">books</a></li>
     </ul>
   </div>
   <router-outlet></router-outlet>

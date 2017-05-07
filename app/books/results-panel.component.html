@@ -7,6 +7,7 @@
         <div *ngIf="result.accessInfo?.pdf?.isAvailable">
             <a href="{{result.accessInfo?.pdf?.downloadLink}}">download link</a>
         </div>
+        <a [routerLink]="['/books/book', { id : result.id }]">detail</a>
     </li>
 </ul>
 <h3 *ngIf="!results.length">Sorry no results to display</h3>

@@ -19,7 +19,7 @@ import {
 
 @Component({
     moduleId : '' + module.id,
-    templateUrl : `./contact.component.html`,
+    templateUrl : `./books.component.html`,
     styleUrls : ['./styles.css'],  // Doesn't compile if this is scss. because of lazy loading?
     animations: [
       trigger('resultsState', [
@@ -37,7 +37,7 @@ import {
 })
 
 
-export class ContactComponent {
+export class BooksComponent {
 
     form: FormGroup;
 
@@ -108,7 +108,7 @@ export class ContactComponent {
 
         // whenever an event happens on the input stream, we update the url
         inputStream.debounceTime(1000).forEach(val => {
-            this.router.navigate(['/contact', this.createURLParams(this.form.value, otherCriteria)]);
+            this.router.navigate(['/books', this.createURLParams(this.form.value, otherCriteria)]);
         });
 
         /*
