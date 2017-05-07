@@ -20,7 +20,7 @@ import {
 @Component({
     moduleId : '' + module.id,
     templateUrl : `./books.component.html`,
-    styleUrls : ['./styles.css'],  // Doesn't compile if this is scss. because of lazy loading?
+    styleUrls : ['./styles.scss'],  // Doesn't compile if this is scss. because of lazy loading?
     animations: [
       trigger('resultsState', [
         state('in', style({

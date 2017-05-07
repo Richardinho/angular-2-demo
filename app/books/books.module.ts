@@ -5,7 +5,7 @@ import { BooksComponent } from './books.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ResultsService } from '../services/results-service';
 import { HttpModule, JsonpModule } from '@angular/http';
-import { ResultsPanelComponent } from './results-panel';
+import { ResultsPanelComponent } from './results-panel.component';
 import { ParamUtils } from './param-utils';
 import { BookDetailComponent } from './book-detail.component';
 import { BookDetailService } from '../services/book-detail.service';

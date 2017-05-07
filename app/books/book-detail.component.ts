@@ -5,7 +5,7 @@ import { BookDetailService } from '../services/book-detail.service';
 @Component({
     moduleId : '' + module.id,
     templateUrl : './book-detail.component.html',
-    styleUrls : ['./book-detail.css']
+    styleUrls : ['./book-detail.scss']
 })
 export class BookDetailComponent {
 

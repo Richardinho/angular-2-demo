@@ -3,7 +3,7 @@ import { Component, Input, HostBinding } from '@angular/core';
 @Component({
     moduleId : '' + module.id,  //  see readme for explanation for this.
     selector : 'results-panel',
-    styleUrls : ['./results-panel.css'],
+    styleUrls : ['./results-panel.scss'],
     templateUrl : `./results-panel.component.html`
 })
 export class ResultsPanelComponent {

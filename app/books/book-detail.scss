@@ -1,0 +1,38 @@
+@import "../../styles/variables";
+:host {
+    display : block;
+    padding : $base-width;
+    background : $background-color;
+    color : $font-color;
+}
+
+h2 {
+    font-size : 20px;
+    color : $font-color;
+    margin-bottom : $base-width;
+}
+
+.published-date {
+    line-height : 1.5;
+}
+
+img {
+    height : 300px;
+    float : left;
+    border : solid 2px $border-color;
+    margin-right : $base-width;
+    margin-bottom : $base-width;
+}
+
+.sale-info, .access-info {
+    float : left;
+    padding : $base-width;
+    margin-right : $base-width;
+    margin-bottom : $base-width;
+}
+.sale-info {
+    background : lighten($base-color, 10%);
+}
+.access-info {
+    background : lighten($base-color, 14%);
+}

@@ -1,10 +1,11 @@
+@import "../../styles/variables";
 :host {
-    background : #ddd;
+    background : $background-color;
 }
 
 .result {
     padding : 20px;
-    border-bottom : solid 4px #ccc;
+    border-bottom : solid 4px darken($background-color, 10%);
 }
 
 img {
@@ -16,6 +17,6 @@ img {
 h2 {
     font-size : 18px;
     margin-bottom : 12px;
-    color : black;
+    color : $font-color;
 }
 
