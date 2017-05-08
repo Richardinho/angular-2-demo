@@ -18,7 +18,7 @@ ljljj
 dfdfd
 ### Issues encountered during development
 
-1. If you want to exclude files from being transpiled, they need to be excluded in the tsconfig file. (Excluding them in the Webpack config doesn't work). A 'gotcha' here though is that the exclude property has a default value. If you simply set it to those files that you wish to exclude but don't also explicitly reset the default values, the transpiler will attempt to compile those files, for example the whole of node_module!
+1. If you want to exclude files from being transpiled, they need to be excluded in the tsconfig file. (Excluding them in the Webpack config doesn't work). A 'gotcha' here though is that the exclude property has a default value which excludes files such as those within node_module folder. If you fail to explicitly set these default values within the exclude array then the transpiler will attempt to compile them and likely result in errors.
 
 
 2. In a component moduleId needs to be set to a string. Normally we use 'module.id' for this. Webpack however returns a number! Solution is to convert the module.id into a string. e.g. '' + module.id.
