@@ -3,6 +3,12 @@
 This is a single page app which provides the user with the ability to search for and view data from the Google Books Api.
 The purpose of this app is to experiment with as many aspects of Angular 4 as possible. Other technologies used are Webpack, SASS, Jasmine, and of course the Google Books API.
 
+#### features
+* Ahead of Time compilation
+* Lazy loading of routes
+* Animated transitions
+* Unit tests
+
 ### Configuration
 There are separate configurations for testing, development and production. Webpack is used for generating builds.
 
