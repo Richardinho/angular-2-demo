@@ -1,4 +1,4 @@
-#Single Page App with Angular 4
+# Single Page App with Angular 4
 
 ### Intro
 The new incarnation of Angular now at version 4 ( though the differences between it and version 2 are minimal), is the most cutting edge and advanced of all the front end Javascript MVC frameworks. It is designed as a one stop solution for building single page apps with performance in mind, and is built according to sound engineering principles while encorporating support for Typescript, modern build tools like Webpack and SystemJS and functional reactive programming styles.
