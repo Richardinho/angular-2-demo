@@ -1,20 +1,4 @@
-Simple project showcasing various features of Angular (version 4)
-
-1. For the test we exclude the main.aot.ts and main.jit.ts files. Excluding them in the webpack or karma configurations doesn't work as the at compiler tries to compile everything in the base folder. They need to be excluded in tsconfig using the exclude property.
-
-The tsconfig file exclude property by default excludes 'node_modules'. If you explicitly set the exclude property however, unless you explicitly set node_modules to be excluded also it will be included resulting in lots of errors!
-
-
-2. Getting error: 'moduleId should be a string in "ResultsPanelComponent"'
-Turns out that Angular expects a string but in Webpack module.id returns a number! Solution is to convert the module.id into a string.
-
-
-Questions
-
-1. How to run tests in browser for debugging?
-
-
-## Building a single page app with Angular
+#Single Page App with Angular 4
 
 ### Intro
 The new incarnation of Angular now at version 4 ( though the differences between it and version 2 are minimal), is the most cutting edge and advanced of all the front end Javascript MVC frameworks. It is designed as a one stop solution for building single page apps with performance in mind, and is built according to sound engineering principles while encorporating support for Typescript, modern build tools like Webpack and SystemJS and functional reactive programming styles.
@@ -32,9 +16,19 @@ For a production app, it is required to have separate build config files for dev
 #### Dev environment
  'Compilation' in Angular means the processing of components and templates into runnable Javascript. There are two ways in Angular that this can be done. Compiling in the browser at runtime is known as 'Just In Time' or JIT. This is the recommended method for development. AOT (Ahead of Time) means doing the compilation on the server. We will use this method for the production environment.
 
-#### Produdction environment
+#### Production environment
 
 #### Testing Environment
+
+### Issues encountered during development
+
+1. For the test we exclude the main.aot.ts and main.jit.ts files. Excluding them in the webpack or karma configurations doesn't work as the at compiler tries to compile everything in the base folder. They need to be excluded in tsconfig using the exclude property.
+
+The tsconfig file exclude property by default excludes 'node_modules'. If you explicitly set the exclude property however, unless you explicitly set node_modules to be excluded also it will be included resulting in lots of errors!
+
+
+2. Getting error: 'moduleId should be a string in "ResultsPanelComponent"'
+Turns out that Angular expects a string but in Webpack module.id returns a number! Solution is to convert the module.id into a string.
 
 
 
