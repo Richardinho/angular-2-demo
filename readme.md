@@ -7,6 +7,7 @@ The purpose of this app is to experiment with as many aspects of Angular 4 as po
 * Ahead of Time compilation
 * Lazy loading of routes
 * Animated transitions
+* Reactive forms
 * Unit tests
 
 ### Configuration
